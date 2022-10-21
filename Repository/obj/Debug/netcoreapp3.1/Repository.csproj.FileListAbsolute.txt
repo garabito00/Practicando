@@ -1,0 +1,16 @@
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.json
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Repository.runtimeconfig.dev.json
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Models.dll
+C:\Users\GARABITO\source\repos\Repository\bin\Debug\netcoreapp3.1\Models.pdb
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.AssemblyReference.cache
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
+C:\Users\GARABITO\source\repos\Repository\obj\Debug\netcoreapp3.1\Repository.genruntimeconfig.cache
