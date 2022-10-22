@@ -1,0 +1,27 @@
+﻿@model Models.ViewModel.ProyectoVM
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <h2 class="text-danger">Seguro que quieres eliminar el proyecto <span class="font-weight-bold">@Model.Proyecto.Compania</span>?</h2>
+        </div>
+        <div class="col-2">
+            <form asp-action="Delete">
+                <input asp-for="Proyecto.Compania" hidden />
+                <input asp-for="Proyecto.Proyecto_Id" hidden />
+                <div class="container-fluid">
+                    <div class="btn-group">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <a class="btn btn-info" asp-action="Index" asp-controller="Proyecto">Back to Index</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

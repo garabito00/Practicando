@@ -1,0 +1,50 @@
+﻿@model Models.ViewModel.ProyectoVM
+
+@{
+    ViewData["Title"] = "Proyectos";
+}
+
+@if (Model.ProyectosLista.Count() == 0)
+{
+    <div class="row">
+        <div class="col-10">
+            <h2>No hay proyectos en la base de datos</h2>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" asp-action="Create" asp-controller="Proyecto">Create</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Proyectos</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <h3>Compañia</h3>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" asp-action="Create" asp-controller="Proyecto">Create</a>
+        </div>
+    </div>
+    @foreach (var item in Model.ProyectosLista)
+    {
+        <div class="row border">
+            <div class="col-10">
+                <p>
+                    @item.Compania
+                </p>
+            </div>
+            <div class="col-2">
+                <div class="btn-group">
+                    <a class="btn btn-info" asp-action="Edit" asp-controller="Proyecto" asp-route-id="@item.Proyecto_Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Proyecto" asp-route-id="@item.Proyecto_Id">Delete</a>
+                </div>
+            </div>
+        </div>
+     }
+}
+

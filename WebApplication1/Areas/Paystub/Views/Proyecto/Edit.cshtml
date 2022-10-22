@@ -1,0 +1,43 @@
+﻿@model Models.ViewModel.ProyectoVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <h2>Editar el Proyecto de <span class="font-weight-bold">@Model.Proyecto.Compania</span></h2>
+        </div>
+        <div class="col-2">
+        </div>
+    </div>
+    <form asp-action="Edit">
+        <input asp-for="Proyecto.Proyecto_Id" hidden />
+        <div class="row m-2">
+            <div class="col">
+                <label asp-for="Proyecto.Compania" class="col-form-label"></label>
+                <input asp-for="Proyecto.Compania" class="form-control" />
+                <span asp-validation-for="Proyecto.Compania"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-fluid">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit">Edit</button>
+                        <a class="btn btn-info" asp-action="Index" asp-controller="Proyecto">Back to the Index</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

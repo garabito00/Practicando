@@ -1,0 +1,57 @@
+﻿@model Models.ViewModel.PositionVM
+
+@{
+    ViewData["Title"] = "Posiciones";
+}
+
+@if (Model.Posiciones.Count() == 0)
+{
+    <div class="row">
+        <div class="col-10">
+            <h2>No hay Posiciones en la base de datos</h2>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" asp-action="Create" asp-controller="Posiciones">Create</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Posiciones</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <h3>Posicion</h3>
+        </div>
+        <div class="col-5">
+            <h3>Proyecto</h3>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" asp-action="Create" asp-controller="Posicion">Create</a>
+        </div>
+    </div>
+    @foreach (var item in Model.Posiciones)
+    {
+        <div class="row border">
+            <div class="col-5">
+                <p>
+                    @item.Titulo
+                </p>
+            </div>
+            <div class="col-5">
+                <p>
+                    @item.Proyecto.Compania
+                </p>
+            </div>
+            <div class="col-2">
+                <div class="btn-group">
+                    <a class="btn btn-info" asp-action="Edit" asp-controller="Posicion" asp-route-id="@item.Posicion_Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-controller="Posicion" asp-route-id="@item.Posicion_Id">Delete</a>
+                </div>
+            </div>
+        </div>
+     }
+}
