@@ -1,12 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\" />
-    <Folder Include="Implementation\" />
+    <Compile Remove="Migrations\20221022045211_AddAutoIncrementToPositionInDataBase.cs" />
+    <Compile Remove="Migrations\20221022045211_AddAutoIncrementToPositionInDataBase.Designer.cs" />
+    <Compile Remove="Migrations\20221022045726_AddAutoIncrementToPositionInDataBase.cs" />
+    <Compile Remove="Migrations\20221022045726_AddAutoIncrementToPositionInDataBase.Designer.cs" />
+    <Compile Remove="Migrations\20221022050133_AddAutoIncrementToPositionInDataBase.cs" />
+    <Compile Remove="Migrations\20221022050133_AddAutoIncrementToPositionInDataBase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

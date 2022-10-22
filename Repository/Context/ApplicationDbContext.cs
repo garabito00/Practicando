@@ -21,7 +21,7 @@ namespace Repository.Context
         public DbSet<Proyecto> proyectos { get; set; }
         public DbSet<Ubicacion> ubicaciones { get; set; }
 
-         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.BolantePagoFluentApi();
             modelBuilder.CuentaBancoFluentApi();
@@ -30,6 +30,6 @@ namespace Repository.Context
             modelBuilder.ProyectoFluentApi();
             modelBuilder.UbicacionFluentApi();
             modelBuilder.RelacionesFluentApi();
-         }
+        }
     }
 }

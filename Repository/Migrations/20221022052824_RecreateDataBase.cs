@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class FirstMigrations : Migration
+    public partial class RecreateDataBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,8 +39,7 @@ namespace Repository.Migrations
                 columns: table => new
                 {
                     Posicion_Id = table.Column<int>(nullable: false)
-                    .Annotation("MySql:ValueGenerationStrategy",
-                    MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     titulo = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false),
                     proyecto_id = table.Column<int>(type: "int", nullable: false)
                 },

@@ -4,15 +4,36 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class FirstMigrations : Migration
+    public partial class DropAllTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "bolantePago");
+
+            migrationBuilder.DropTable(
+                name: "CuentaBanco");
+
+            migrationBuilder.DropTable(
+                name: "empelados");
+
+            migrationBuilder.DropTable(
+                name: "Posicion");
+
+            migrationBuilder.DropTable(
+                name: "Ubicacion");
+
+            migrationBuilder.DropTable(
+                name: "Proyecto");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Proyecto",
                 columns: table => new
                 {
-                    Proyecto_Id = table.Column<int>(nullable: false)
+                    Proyecto_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     compania = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false)
                 },
@@ -25,7 +46,7 @@ namespace Repository.Migrations
                 name: "Ubicacion",
                 columns: table => new
                 {
-                    Ubicacion_Id = table.Column<int>(nullable: false)
+                    Ubicacion_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     lugar = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false)
                 },
@@ -38,11 +59,9 @@ namespace Repository.Migrations
                 name: "Posicion",
                 columns: table => new
                 {
-                    Posicion_Id = table.Column<int>(nullable: false)
-                    .Annotation("MySql:ValueGenerationStrategy",
-                    MySqlValueGenerationStrategy.IdentityColumn),
-                    titulo = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false),
-                    proyecto_id = table.Column<int>(type: "int", nullable: false)
+                    Posicion_Id = table.Column<int>(type: "int", nullable: false),
+                    proyecto_id = table.Column<int>(type: "int", nullable: false),
+                    titulo = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,15 +78,15 @@ namespace Repository.Migrations
                 name: "empelados",
                 columns: table => new
                 {
-                    Empleado_Id = table.Column<int>(nullable: false)
+                    Empleado_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    nombre = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
                     apellido = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
                     cedula = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
+                    nombre = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
                     posicion_id = table.Column<int>(type: "int", nullable: false),
                     salario_hora = table.Column<double>(type: "double", nullable: false),
-                    ubicacion_id = table.Column<int>(type: "int", nullable: false),
-                    tipo_empleado = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false)
+                    tipo_empleado = table.Column<string>(type: "VARCHAR(25)", maxLength: 25, nullable: false),
+                    ubicacion_id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,19 +109,19 @@ namespace Repository.Migrations
                 name: "bolantePago",
                 columns: table => new
                 {
-                    Bolante_Id = table.Column<int>(nullable: false)
+                    Bolante_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Fecha = table.Column<DateTime>(type: "datetime", nullable: false),
+                    afp = table.Column<double>(type: "double", nullable: false),
                     bonificacion_asistencia = table.Column<bool>(type: "boolean", nullable: false),
                     bono_extra = table.Column<double>(type: "double", nullable: false),
-                    horas_normales = table.Column<double>(type: "double", nullable: false),
+                    empleado_id = table.Column<int>(type: "int", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "datetime", nullable: false),
                     horas_extra = table.Column<double>(type: "double", nullable: false),
-                    afp = table.Column<double>(type: "double", nullable: false),
-                    seguro_salud = table.Column<double>(type: "double", nullable: false),
-                    pagos_horas_normales = table.Column<double>(type: "double", nullable: false),
+                    horas_normales = table.Column<double>(type: "double", nullable: false),
                     pagos_horas_extra = table.Column<double>(type: "double", nullable: false),
-                    total_periodo = table.Column<double>(type: "double", nullable: false),
-                    empleado_id = table.Column<int>(type: "int", nullable: false)
+                    pagos_horas_normales = table.Column<double>(type: "double", nullable: false),
+                    seguro_salud = table.Column<double>(type: "double", nullable: false),
+                    total_periodo = table.Column<double>(type: "double", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -119,12 +138,12 @@ namespace Repository.Migrations
                 name: "CuentaBanco",
                 columns: table => new
                 {
-                    Cuenta_Banco_Id = table.Column<int>(nullable: false)
+                    Cuenta_Banco_Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     banco = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false),
-                    tipo_cuenta = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: true),
+                    Empleado_Id = table.Column<int>(type: "int", nullable: false),
                     numero_cuenta = table.Column<int>(type: "int", nullable: false),
-                    Empleado_Id = table.Column<int>(nullable: false)
+                    tipo_cuenta = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -156,27 +175,6 @@ namespace Repository.Migrations
                 name: "IX_empelados_ubicacion_id",
                 table: "empelados",
                 column: "ubicacion_id");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "bolantePago");
-
-            migrationBuilder.DropTable(
-                name: "CuentaBanco");
-
-            migrationBuilder.DropTable(
-                name: "empelados");
-
-            migrationBuilder.DropTable(
-                name: "Posicion");
-
-            migrationBuilder.DropTable(
-                name: "Ubicacion");
-
-            migrationBuilder.DropTable(
-                name: "Proyecto");
         }
     }
 }
