@@ -1,0 +1,26 @@
+public void SendEmail()
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
+
+                client.Port = 587;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+
+                NetworkCredential credentials = new NetworkCredential("Email Account", "Password Goes Here");
+
+                client.EnableSsl = true;
+                client.Credentials = credentials;
+
+                MailMessage message = new MailMessage("From Email", "To Email");
+                message.Subject = "Test Email";
+                message.Body = "<h1>This is the body of the email</h1>";
+                message.IsBodyHtml = true;
+                client.Send(message);
+
+            } catch (Exception e)
+            {
+                throw;
+            }
+        }
