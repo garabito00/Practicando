@@ -1,5 +1,9 @@
-public IActionResult SendEmail()
+public void SendEmail(string messageBody, string to, string name)
         {
+            if(messageBody == string.Empty)
+            {
+                messageBody = "<h1>This is the body of the email</h1>";
+            }
             try
             {
                 SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
@@ -8,14 +12,14 @@ public IActionResult SendEmail()
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
 
-                NetworkCredential credentials = new NetworkCredential("Email Account", "Password Goes Here");
+                NetworkCredential credentials = new NetworkCredential("garabito.miguel@hotmail.com", "Jhaymi01");
 
                 client.EnableSsl = true;
                 client.Credentials = credentials;
 
-                MailMessage message = new MailMessage("From Email", "To Email");
-                message.Subject = "Test Email";
-                message.Body = "<h1>This is the body of the email</h1>";
+                MailMessage message = new MailMessage("garabito.miguel@hotmail.com", to);
+                message.Subject = $"Hi {name} your paystub is ready";
+                message.Body = messageBody;
                 message.IsBodyHtml = true;
                 client.Send(message);
 
@@ -23,6 +27,4 @@ public IActionResult SendEmail()
             {
                 throw;
             }
-            
-            return RedirectToAction("Index", "Home"); 
-        }
+        }  
